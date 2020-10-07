@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Documentation</title>
+    <title>Ride Alive - Documentation</title>
 
     <!-- Bootstrap -->
     <link href="../static/css/bootstrap-4.4.1.css" rel="stylesheet">
@@ -12,48 +12,41 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-       <a class="navbar-brand" href="#">Navbar</a>
+       <a class="navbar-brand" href="#">UK Motorcycle Accidents</a>
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
        <span class="navbar-toggler-icon"></span>
        </button>
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
              <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
              </li>
              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="/heatmap">Heatmap</a>
              </li>
-             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                   <a class="dropdown-item" href="#">Action</a>
-                   <a class="dropdown-item" href="#">Another action</a>
-                   <div class="dropdown-divider"></div>
-                   <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-             </li>
-             <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
+			 <li class="nav-item">
+                <a class="nav-link" href="/documentation">Documentation</a>
              </li>
           </ul>
 </div>
     </nav>
 
     <div class="jumbotron jumbotron-fluid text-center">
-       <h1 class="display-4">Bootstrap with Dreamweaver</h1>
-       <p class="lead">Easily build your page using the Bootstrap components from the Insert panel.</p>
+       <h1 class="display-4">Ride Alive</h1>
+       <p class="lead">Creating Safer Riding Experiences via A.I.</p>
        <hr class="my-4">
-       <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-       <p class="lead">
-          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-       </p>
+		<p>Arsel Vargas, David Hutchinson, Maninder Bawa, Felipe Starling</p>
+		<p>Group 1 - Project 2 - Data Analytics</p>
     </div>
     <div class="container">
-       <div class="row text-center">
-          <div class="col-lg-6 offset-lg-3">Click outside the blue container to select this <strong>row</strong>. Columns are always contained within a row. <strong>Rows are indicated by a dashed grey line and rounded corners</strong>. </div>
+       <div class="row text-left">
+          <div class="col-lg-6 offset-lg-3 offset-xl-2 col-xl-8">
+            <p>Our goal is to create a piece of software that, using artificial intelligence, will learn from existing motorcycle drivers to improve the riding experience of the current user.&nbsp;</p>
+            <p>Our initial dataset will be limited in scope, to provide proof of concept and remove liability due to privacy laws. Once the software is created, new users will be able to willingly share their data, and therefore refine the learning database our software can rely upon.&nbsp;</p>
+            <p>The first step in our plan, is to identify accident prone areas within a set location. This will allow our software to “Alert” users that they are approaching a dangerous area.&nbsp;</p>
+            <p>Our second step is to analize the sex and age of people from our dataset, we plan to develop a marketing strategy that targets our “higher-risk” users, while also adding a higher “weight” to variables obtained from our “lower-risk” users.&nbsp;</p>
+            <p>Our data will be displayed using a geographical visual, depicting the location of motorcycle accident incidents across the United Kingdom. We also plan to incorporate a “heatmap” layer, which should highlight higher incident areas than others. Further layers will allow the filtering of age and sex of those involved within accidents. </p>
+         </div>
        </div>
        <br>
        <hr>
@@ -61,9 +54,9 @@
        <div class="row">
           <div class="col-md-4">
              <div class="card">
-                <img class="card-img-top" src="images/card-img.png" alt="Card image cap">
+                <img class="card-img-top" src="../static/img/random_sample.png" alt="Card image cap">
                 <div class="card-body">
-                   <h4 class="card-title">Card title</h4>
+                   <h4 class="card-title">Random Sample</h4>
                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                    <br><br>
                    <a href="#" class="btn btn-primary">Go somewhere</a>
@@ -72,41 +65,23 @@
           </div>
           <div class="col-md-4">
              <div class="card">
+                <img class="card-img-top" src="../static/img/heatmap.png" alt="Card image cap">
                 <div class="card-body">
-                   <h5 class="card-title">Card title</h5>
-                   <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                   <h4 class="card-title">Heatmap</h4>
                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                   <a href="#" class="card-link">Card link</a>
-                   <a href="#" class="card-link">Another link</a>
+                   <br><br>
+                   <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
-             </div>
-             <br>
-             <br/>
-             <div class="card">
-                <div class="card-header">
-                   Featured
-                </div>
-                <ul class="list-group list-group-flush">
-                   <li class="list-group-item">Cras justo odio</li>
-                   <li class="list-group-item">Dapibus ac facilisis in</li>
-                   <li class="list-group-item">Vestibulum at eros</li>
-                </ul>
              </div>
           </div>
           <div class="col-md-4">
              <div class="card">
-                <img class="card-img-top" src="images/card-img.png" alt="Card image cap">
+                <img class="card-img-top" src="../static/img/documentation.png" alt="Card image cap">
                 <div class="card-body">
-                   <h5 class="card-title">Card title</h5>
-                   <p class="card-text">Some text to build on the card's content.</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                   <li class="list-group-item">Cras justo odio</li>
-                   <li class="list-group-item">Dapibus ac facilisis in</li>
-                </ul>
-                <div class="card-body">
-                   <a href="#" class="card-link">Card link</a>
-                   <a href="#" class="card-link">Another link</a>
+                   <h4 class="card-title">Documentation</h4>
+                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                   <br><br>
+                   <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
              </div>
           </div>
@@ -151,10 +126,10 @@
        </div>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed --> 
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap-4.4.1.js"></script>
+    <script src="../static/js/popper.min.js"></script>
+    <script src="../static/js/bootstrap-4.4.1.js"></script>
   </body>
 </html>

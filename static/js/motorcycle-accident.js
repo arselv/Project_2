@@ -13,7 +13,7 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   accessToken: API_KEY
 }).addTo(myMap);
 
-var newtry = "../motorcycle_accident_400.json";
+var newtry = "../static/resources/motorcycle_accident_400.json";
 console.log("dabase location: " + newtry)
 
 d3.json(newtry, function(response) {
