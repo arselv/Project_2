@@ -1,5 +1,5 @@
 # import necessary libraries
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -43,67 +43,30 @@ def documentation():
     return render_template("documentation.html")
 
 # The following functions would be used for returning DB Query results, possible examples
-@app.route("/agegrps")
-def ageGroups(value):
-    if value == "Under 19":
-        session = Session(engine)
-        lat = session.execute('Select Latitude From uk_motorcycle_accidents Where Age_Group = "Under 19"').fetchall()
-        lon = session.execute('Select Longitude From uk_motorcycle_accidents Where Age_Group = "Under 19"').fetchall()
-        session.close()
-    elif value == "18 to 25":
-        session = Session(engine)
-        lat = session.execute('Select Latitude From uk_motorcycle_accidents Where Age_Group = "18 to 25"').fetchall()
-        lon = session.execute('Select Longitude From uk_motorcycle_accidents Where Age_Group = "18 to 25"').fetchall()
-        session.close()
-    elif value == "26 to 35":
-        session = Session(engine)
-        lat = session.execute('Select Latitude From uk_motorcycle_accidents Where Age_Group = "26 to 35"').fetchall()
-        lon = session.execute('Select Longitude From uk_motorcycle_accidents Where Age_Group = "26 to 35"').fetchall()
-        session.close()
-    elif value == "36 to 45":
-        session = Session(engine)
-        lat = session.execute('Select Latitude From uk_motorcycle_accidents Where Age_Group = "36 to 45"').fetchall()
-        lon = session.execute('Select Longitude From uk_motorcycle_accidents Where Age_Group = "36 to 45"').fetchall()
-        session.close()
-    elif value == "46 to 55":
-        session = Session(engine)
-        lat = session.execute('Select Latitude From uk_motorcycle_accidents Where Age_Group = "46 to 55"').fetchall()
-        lon = session.execute('Select Longitude From uk_motorcycle_accidents Where Age_Group = "46 to 55"').fetchall()
-        session.close()
-    elif value == "46 to 55":
-        session = Session(engine)
-        lat = session.execute('Select Latitude From uk_motorcycle_accidents Where Age_Group = "46 to 55"').fetchall()
-        lon = session.execute('Select Longitude From uk_motorcycle_accidents Where Age_Group = "46 to 55"').fetchall()
-        session.close()
-    elif value == "Over 55":
-        session = Session(engine)
-        lat = session.execute('Select Latitude From uk_motorcycle_accidents Where Age_Group = "46 to 55"').fetchall()
-        lon = session.execute('Select Longitude From uk_motorcycle_accidents Where Age_Group = "46 to 55"').fetchall()
-        session.close()
-    
-    return render_template("map.html", lat=lat, lon=lon)
+@app.route("/gengrps/<GenderRange>")
+def genderGroups(GenderRange):
+    df = pd.read_sql_query(f"Select * From uk_motorcycle_accidents Where Sex_of_Casualty = '{GenderRange}'", con=engine)
+    df_dict = df.to_dict(orient = 'record')
+    return jsonify(df_dict)
 
-@app.route("/gengrps")
-def genderGroups(value):
-    session = Session(engine)
-
-    session.close()
-    return render_template("map.html", lat=lat, lon=lon)
-
-@app.route("/yearcas")
-def yearCasualties():
-    session = Session(engine)
-
-    session.close()
-    return render_template("map.html", lat=lat, lon=lon)
+@app.route("/yearcas/<YearRange>")
+def yearCasualties(YearRange):
+    df = pd.read_sql_query(f"Select * From uk_motorcycle_accidents Where Year = '{YearRange}'", con=engine)
+    df_dict = df.to_dict(orient = 'record')
+    return jsonify(df_dict)
 
 # create route that renders ALL DATABASE LAT AND LONG 
-@app.route('/ageGroups')
-def latlng():
-    df = pd.read_sql_query('Select * from uk_motorcycle_accidents', con=engine).head()
-    return df.to_json(orient='index')
+@app.route('/agegrps/<AgeRange>')
+def ageGroups(AgeRange):
+    df = pd.read_sql_query(f"Select * From uk_motorcycle_accidents Where Age_Group = '{AgeRange}'", con=engine)
+    df_dict = df.to_dict(orient = 'record')
+    return jsonify(df_dict)
 
-
+@app.route('/fltrdgrps/<YearRange>/<GenderRange>/<AgeRange>')
+def filteredGroup(YearRange, GenderRange, AgeRange):
+    df = pd.read_sql_query(f"Select * From uk_motorcycle_accidents Where Year = '{YearRange}' and Sex_of_Casualty = '{GenderRange}' and Age_Group = '{AgeRange}'", con=engine)
+    df_dict = df.to_dict(orient = 'record')
+    return jsonify(df_dict)
 
 if __name__ == "__main__":
     app.run(debug=True)
