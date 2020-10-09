@@ -18,8 +18,11 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 // var YearRange = ["2010", "2011", "2012", "2013", "2014"]
 
 var AgeRange = ["Under 18"]
-var GenderRange = ["Female"]
-var YearRange = ["2011"]
+var GenderRange = ["Male"]
+var YearRange = ["2013"]
+
+// slider = L.control.slider(function(value) {console.log(value)}, {id:slider, 'vertical'});
+
 
 var newtry = "/fltrdgrps/"+YearRange+"/"+GenderRange+"/"+AgeRange;
 console.log("dabase location: " + newtry)

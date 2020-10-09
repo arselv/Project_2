@@ -12,10 +12,18 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   accessToken: API_KEY
 }).addTo(myMap);
 
-var url = "../static/resources/motorcycle_accident_full.json";
-console.log("dabase location: " + url)
+// var AgeRange = ["Under 18", "18 to 25", "26 to 35", "36 to 45", "46 to 55", "Over 55"]
+// var GenderRange = ["Male", "Female"]
+// var YearRange = ["2010", "2011", "2012", "2013", "2014"]
 
-d3.json(url, function(response) {
+var AgeRange = ["Under 18"]
+var GenderRange = ["Male"]
+var YearRange = ["2012"]
+
+var newtry = "/fltrdgrps/"+YearRange+"/"+GenderRange+"/"+AgeRange;
+console.log("dabase location: " + newtry)
+
+d3.json(newtry, function(response) {
 
   console.log("-------");
   console.log(response);
@@ -48,8 +56,8 @@ d3.json(url, function(response) {
   }
   console.log(heatArray)  
     L.heatLayer(heatArray, {
-    radius: 40,
-    blur: 35
+    radius: 75,
+    blur: 45
   }).addTo(myMap);
 
 });
