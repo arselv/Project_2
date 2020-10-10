@@ -1,8 +1,10 @@
 var myMap = L.map("map", {
   center: [51.358227, -0.054993],
   zoom: 13
+
 });
 
+// Adding tile layer
 L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
   attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
   tileSize: 512,
@@ -12,6 +14,10 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   accessToken: API_KEY
 }).addTo(myMap);
 
+
+
+
+
 // var AgeRange = ["Under 18", "18 to 25", "26 to 35", "36 to 45", "46 to 55", "Over 55"]
 // var GenderRange = ["Male", "Female"]
 // var YearRange = ["2010", "2011", "2012", "2013", "2014"]
@@ -20,14 +26,16 @@ var AgeRange = ["Under 18"]
 var GenderRange = ["Male"]
 var YearRange = ["2012"]
 
-var newtry = "/fltrdgrps/"+YearRange+"/"+GenderRange+"/"+AgeRange;
+var newtry = "/all"
+//var newtry = "../static/resources/motorcycle_accident_400.json";
+//var newtry = "/fltrdgrps/"+YearRange+"/"+GenderRange+"/"+AgeRange;
 console.log("dabase location: " + newtry)
 
 d3.json(newtry, function(response) {
 
-  console.log("-------");
-  console.log(response);
-  console.log("-------");
+  // console.log("-------");
+  // console.log(response);
+  // console.log("-------");
 
   var count = Object.keys(response).length;
   console.log(count);
@@ -41,8 +49,8 @@ d3.json(newtry, function(response) {
     // console.log(location.Longitude, location.Latitude);
     // console.log("-------");
     let LatLng = [location.Latitude, location.Longitude];
-    // console.log(LatLng)
-    // console.log("-------");
+     console.log(LatLng)
+     console.log("-------");
     heatArray.push(LatLng);
 
     // heatArray.push(location.Latitude, location.Longitude);
@@ -56,8 +64,8 @@ d3.json(newtry, function(response) {
   }
   console.log(heatArray)  
     L.heatLayer(heatArray, {
-    radius: 75,
-    blur: 45
+    radius: 25,
+    blur: 35
   }).addTo(myMap);
 
 });

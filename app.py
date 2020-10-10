@@ -68,5 +68,17 @@ def filteredGroup(YearRange, GenderRange, AgeRange):
     df_dict = df.to_dict(orient = 'record')
     return jsonify(df_dict)
 
+@app.route('/all500')
+def all500():
+    df = pd.read_sql_query(f"Select * From uk_motorcycle_accidents LIMIT 500" , con=engine)
+    df_dict = df.to_dict(orient = 'record')
+    return jsonify(df_dict)
+
+@app.route('/all')
+def all():
+    df = pd.read_sql_query(f"Select * From uk_motorcycle_accidents" , con=engine)
+    df_dict = df.to_dict(orient = 'record')
+    return jsonify(df_dict)
+
 if __name__ == "__main__":
     app.run(debug=True)
